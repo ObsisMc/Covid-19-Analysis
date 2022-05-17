@@ -12,3 +12,6 @@ ARIMA: https://www.bilibili.com/video/BV1Zz411e78y?spm_id_from=333.337.search-ca
 LSTM：https://curiousily.com/posts/time-series-forecasting-with-lstm-for-daily-coronavirus-cases/
 
 SEIR: https://blog.csdn.net/Program_dancing/article/details/106321348
+
+### some data
+全国老龄化地图：哪些省市疫情防控压力最大？: https://www.163.com/dy/article/H5NUAR5K0515UN97.html
