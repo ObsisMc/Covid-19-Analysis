@@ -13,5 +13,12 @@ LSTM：https://curiousily.com/posts/time-series-forecasting-with-lstm-for-daily-
 
 SEIR: https://blog.csdn.net/Program_dancing/article/details/106321348
 
-### some data
+### SIR and kind of models
+SIR: https://zhuanlan.zhihu.com/p/496661721
+SEIQR: https://zhuanlan.zhihu.com/p/496912619 
+
+## some data
 全国老龄化地图：哪些省市疫情防控压力最大？: https://www.163.com/dy/article/H5NUAR5K0515UN97.html
+
+## FOUND
+SIR: population is a vital argument, not everyone will get contacted with the others!
