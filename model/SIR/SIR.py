@@ -29,9 +29,9 @@ class SIR:
         res = spi.odeint(self.diff_eqs, init_value, t_range)
         return res
 
-    def show(self, res):
+    def show(self, res, figsize=(15,10)):
         # plot
-        plt.figure(figsize=(20, 10))
+        plt.figure(figsize=figsize)
         plt.plot(res[:, 1], '-r', label='Infectious')
         plt.plot(res[:, 0], '-g', label='Susceptibles')
         plt.plot(res[:, 2], '-k', label='Recovereds')
