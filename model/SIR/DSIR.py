@@ -1,7 +1,11 @@
 import scipy.integrate as spi
 import numpy as np
 import matplotlib.pyplot as plt
-from SIR import SIR
+
+try:
+    from SIR import SIR
+except:
+    from .SIR import SIR
 
 
 class DSIR(SIR):
@@ -9,12 +13,16 @@ class DSIR(SIR):
     Dynamic SIR
     """
 
-    def __init__(self, S0=0.9, I0=0.1, contact_coef=0, beta=0.22, gamma=0.028):
+    def __init__(self, S0=0.9, I0=0.1, contact_coef=1, beta=0.22, gamma=0.028):
         super().__init__(S0, I0, beta, gamma)
         self.contact_coef = contact_coef
 
     def contact_adjust(self, I0):
-        return 1 / (1 + np.exp((-I0 + self.contact_coef) * 5))
+        # contact = 1 / (1 + np.exp((-I0 + self.contact_coef) * 5))
+        contact = self.contact_coef
+        if contact > 1 + 1e-7:
+            raise "contact %f" % contact
+        return contact
 
     def diff_eqs(self, INP, t):
         """
@@ -22,8 +30,9 @@ class DSIR(SIR):
         """
         Y = np.zeros((3))
         V = INP
-        Y[0] = - self.beta * V[0] * V[1] * self.contact_adjust(V[1])
-        Y[1] = self.beta * V[0] * V[1] - self.gamma * V[1]
+        valid_contact = self.beta * V[0] * V[1] * self.contact_adjust(V[1])
+        Y[0] = - valid_contact
+        Y[1] = valid_contact - self.gamma * V[1]
         Y[2] = self.gamma * V[1]
         return Y  # For odeint
 
