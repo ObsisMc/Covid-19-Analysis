@@ -29,14 +29,14 @@ class SIR:
         res = spi.odeint(self.diff_eqs, init_value, t_range)
         return res
 
-    def show(self, res):
+    def show(self, res, figsize=(15, 10), title="SIR_Model"):
         # plot
-        plt.figure(figsize=(20, 10))
+        plt.figure(figsize=figsize)
         plt.plot(res[:, 1], '-r', label='Infectious')
         plt.plot(res[:, 0], '-g', label='Susceptibles')
         plt.plot(res[:, 2], '-k', label='Recovereds')
         plt.legend(loc=0)
-        plt.title('SIR_Model.py')
+        plt.title(title)
         plt.xlabel('Time')
         plt.ylabel('Infectious Susceptibles and Recovereds')
         plt.xlabel('Time')
@@ -53,8 +53,6 @@ def main():
     print(res)
 
     sir.show(res)
-
-
 
 
 if __name__ == "__main__":
