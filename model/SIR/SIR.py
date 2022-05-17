@@ -3,15 +3,16 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # arguments
-beta = 1.4247
-gamma = 0.14286
-S0 = 1 - 1e-6
-I0 = 1e-6
-INIT = (S0, I0, 0.0)
+beta = 0.22  # Disease Transmission Rate
+gamma = 0.028  # Recovery Rate
+S0 = 0.8  # initial susceptible ratio
+I0 = 0.1  # initial infected ratio
+r0 = 1 - S0 - I0  # initial death ratio
+INIT = (S0, I0, r0)
 
 step = 1.0
 start_day = 0
-end_days = 70.0
+end_days = 160.0
 
 
 # differential equation
