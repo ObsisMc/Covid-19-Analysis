@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 
 
 class SIR:
-    def __init__(self, S0=0.9, I0=0.1, beta=0.5, gamma=0.05):
+    def __init__(self, S0=1-1e-6, I0=1e-6, beta=0.55, gamma=0.2):
         self.beta = beta
         self.gamma = gamma
         self.S0 = S0

@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 
 
 class SEIR:
-    def __init__(self, S0=0.9, E0=0, I0=0.1, mu=0.1, beta=0.9, gamma=0.05):
+    def __init__(self, S0=0.9, E0=0, I0=0.1, mu=1, beta=0.9, gamma=0.05):
         self.mu = mu
         self.beta = beta
         self.gamma = gamma
