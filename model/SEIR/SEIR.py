@@ -3,13 +3,15 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-class SIR:
-    def __init__(self, S0=0.9, I0=0.1, beta=0.5, gamma=0.05):
+class SEIR:
+    def __init__(self, S0=0.9, E0=0, I0=0.1, mu=0.1, beta=0.9, gamma=0.05):
+        self.mu = mu
         self.beta = beta
         self.gamma = gamma
         self.S0 = S0
+        self.E0 = E0
         self.I0 = I0
-        self.r0 = 1 - self.S0 - self.I0
+        self.r0 = 1 - self.S0 - self.E0 - self.I0
         assert self.r0 >= -1e-6
 
     # differential equation
@@ -17,24 +19,26 @@ class SIR:
         """
         The main set of equations
         """
-        Y = np.zeros((3))
+        Y = np.zeros((4))
         V = INP
-        Y[0] = - self.beta * V[0] * V[1]
-        Y[1] = self.beta * V[0] * V[1] - self.gamma * V[1]
-        Y[2] = self.gamma * V[1]
+        Y[0] = - self.mu * V[0] * V[2]
+        Y[1] = self.mu * V[0] * V[2] - self.beta * V[1]
+        Y[2] = self.beta * V[1] - self.gamma * V[2]
+        Y[3] = self.gamma * V[2]
         return Y  # For odeint
 
     def predict(self, t_range):
-        init_value = (self.S0, self.I0, self.r0)
+        init_value = (self.S0, self.E0, self.I0, self.r0)
         res = spi.odeint(self.diff_eqs, init_value, t_range)
         return res
 
-    def show(self, res, figsize=(15, 10), title="SIR_Model"):
+    def show(self, res, figsize=(15, 10), title="SEIR"):
         # plot
         plt.figure(figsize=figsize)
-        plt.plot(res[:, 1], '-r', label='Infectious')
         plt.plot(res[:, 0], '-g', label='Susceptibles')
-        plt.plot(res[:, 2], '-k', label='Recovereds')
+        plt.plot(res[:, 1], '-y', label='Exposeds')
+        plt.plot(res[:, 2], '-r', label='Infectious')
+        plt.plot(res[:, 3], '-k', label='Recovereds')
         plt.legend(loc=0)
         plt.title(title)
         plt.xlabel('Time')
@@ -44,7 +48,7 @@ class SIR:
 
 
 def main():
-    sir = SIR()
+    sir = SEIR()
     step = 1.0
     start_day = 0
     end_days = 160.0
