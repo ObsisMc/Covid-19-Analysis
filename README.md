@@ -11,7 +11,10 @@ ARIMA: https://www.bilibili.com/video/BV1Zz411e78y?spm_id_from=333.337.search-ca
 
 LSTM：https://curiousily.com/posts/time-series-forecasting-with-lstm-for-daily-coronavirus-cases/
 
-SEIR: https://blog.csdn.net/Program_dancing/article/details/106321348
+SEIR: 
+1. https://blog.csdn.net/Program_dancing/article/details/106321348
+2. https://zhuanlan.zhihu.com/p/142117573
+
 
 ### SIR and kind of models
 SIR: https://zhuanlan.zhihu.com/p/496661721
