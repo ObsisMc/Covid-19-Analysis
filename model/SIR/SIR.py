@@ -4,14 +4,14 @@ import matplotlib.pyplot as plt
 
 
 class SIR:
-    def __init__(self, S0=1 - 1e-6, I0=1e-6, beta=0.55, gamma=0.2, dead_rate=0.001):
+    def __init__(self, S0=1 - 1e-6, I0=1e-6, D0=0, beta=0.55, gamma=0.2, dead_rate=0.001):
         self.beta = beta
         self.gamma = gamma
         self.S0 = S0
         self.I0 = I0
+        self.D0 = D0
         self.dead_rate = dead_rate
-        self.r0 = 1 - self.S0 - self.I0
-        self.D0 = 0
+        self.r0 = 1 - self.S0 - self.I0 - self.D0
         assert self.r0 >= -1e-6
 
     # differential equation
@@ -38,7 +38,7 @@ class SIR:
         plt.plot(res[:, 0], '-g', label='Susceptibles')
         plt.plot(res[:, 1], '-r', label='Infectious')
         plt.plot(res[:, 2], '-k', label='Recovereds')
-        plt.plot(res[:, 3],  color="black", label='Death')
+        plt.plot(res[:, 3], color="purple", label='Death')
         plt.legend(loc=0)
         plt.title(title)
         plt.xlabel('Time')
