@@ -86,7 +86,7 @@ to_time = st.slider(
 
 cities = pd.DataFrame()
 
-raw_geo = json.loads(open('china.json').read())
+raw_geo = json.loads(open('./china.json', encoding="utf8").read())
 cities['name'] = [r['properties']['name'] for r in raw_geo]
 cities['lat'] = [r['properties']['cp'][1] for r in raw_geo]  # N
 cities['lon'] = [r['properties']['cp'][0] for r in raw_geo]  # E
