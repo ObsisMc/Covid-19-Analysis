@@ -39,8 +39,7 @@ def init_params(city: str, data, start_day=0, pop_density_path="../../dataset/po
     return all_num, [S0_num, I0_num, D0_num, r0_num], [S0, I0, D0, r0]
 
 
-def show_predict(pred,data, all_num, end_day, start_day):
-
+def show_predict(pred, data, all_num, end_day, start_day):
     pre_infected = pred[:, 1] * all_num
     gt_infected = data.loc[start_day:end_day - 1, "currentConfirmedCount"].reset_index(drop=True)
     plt.plot(pre_infected, '-g', label="predict")
@@ -50,6 +49,12 @@ def show_predict(pred,data, all_num, end_day, start_day):
     return pred
 
 
-def eval(pred, test):
-    diff = np.abs(pred - test)
-    return np.sum(diff) / diff.shape[0]
+def eval(pred: pd.DataFrame, test: pd.DataFrame):
+    assert pred.shape[0] == test.shape[0]
+    sample_n = pred.shape[0]
+    error = np.abs(pred - test)
+    error_sum = np.sum(error)
+    avg_error = error_sum / sample_n
+    mse = error_sum ** 2 / sample_n
+    rmse = np.sqrt(mse)
+    return [avg_error, mse, rmse]
