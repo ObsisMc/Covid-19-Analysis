@@ -8,7 +8,7 @@ from sklearn.metrics import mean_squared_error, r2_score
 cities=['上海']
 for i in cities:
     city = i
-    path = '..\..\dataset\data_xyz\provinceData\\' + city + '.json'  ##记得改
+    path = '../../dataset/data_xyz/provinceData/' + city + '.json'  ##记得改
     fr = open(path, 'r', encoding='utf-8')
     json_info = fr.read()
     fr.close()
