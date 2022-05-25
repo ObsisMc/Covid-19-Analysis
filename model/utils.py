@@ -57,4 +57,18 @@ def eval(pred: pd.DataFrame, test: pd.DataFrame):
     avg_error = error_sum / sample_n
     mse = error_sum ** 2 / sample_n
     rmse = np.sqrt(mse)
-    return [avg_error, mse, rmse]
+
+    # R2
+    avg = np.average(test)
+    SS_t = np.sum((test - avg) ** 2)
+    SS_r = np.sum((pred - test) ** 2)
+    R2 = 1 - SS_r / SS_t
+    return [avg_error, mse, rmse, R2]
+
+
+def R2(pred: pd.DataFrame, test: pd.DataFrame):
+    avg = np.average(test)
+    SS_t = np.sum((test - avg) ** 2)
+    SS_r = np.sum((pred - test) ** 2)
+    R2 = 1 - SS_r / SS_t
+    return R2
