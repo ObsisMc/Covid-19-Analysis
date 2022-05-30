@@ -1,6 +1,33 @@
 # Covid-19-Analysis
+## README
+### File structure
 
-## Idea
+├── dataset `data searched from APIs and websites`
+│   ├── data_predict `data predicted by models`
+│   │   ├── LSTM
+│   │   └── SIR
+│   ├── data_xyz `data from xyz`
+│   │   ├── provinceData
+│   │   └── worldData
+│   ├── data_zrh `data from zrh`
+│   │   └── baidu
+│   │       ├── BJ
+│   │       └── SH
+│   ├── vaccinate `vaccinate data`
+│   └── visualize `visualization`
+│       └── data
+└── model `models like SIR, LSTM, prophet and others`
+    ├── ARIMA
+    ├── cluster
+    ├── LSTM
+    ├── prophet
+    ├── SEIR
+    ├── SIR
+    └── xgboost
+
+
+
+## Models and idea
 > from zrh
 
 上海交通大学团队开发数学模型： https://www.cn-healthcare.com/article/20220413/wap-content-568537.html
@@ -20,8 +47,5 @@ SEIR:
 SIR: https://zhuanlan.zhihu.com/p/496661721
 SEIQR: https://zhuanlan.zhihu.com/p/496912619 
 
-## some data
-全国老龄化地图：哪些省市疫情防控压力最大？: https://www.163.com/dy/article/H5NUAR5K0515UN97.html
+> 全国老龄化地图：哪些省市疫情防控压力最大？: https://www.163.com/dy/article/H5NUAR5K0515UN97.html
 
-## FOUND
-SIR: population is a vital argument, not everyone will get contacted with the others!
