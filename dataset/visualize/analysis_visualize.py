@@ -1,3 +1,4 @@
+# requirements: pydeck, streamlit
 import streamlit as st
 import pandas as pd
 import pandas.io.json as pjson
