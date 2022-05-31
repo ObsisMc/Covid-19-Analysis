@@ -1,22 +1,22 @@
 # Covid-19-Analysis
 ## README
 ### File structure
-
-├── dataset `data searched from APIs and websites`
-│   ├── data_predict `data predicted by models`
+```python
+├── dataset # data searched from APIs and websites
+│   ├── data_predict # data predicted by models
 │   │   ├── LSTM
 │   │   └── SIR
-│   ├── data_xyz `data from xyz`
+│   ├── data_xyz # data from xyz
 │   │   ├── provinceData
 │   │   └── worldData
-│   ├── data_zrh `data from zrh`
+│   ├── data_zrh # data from zrh
 │   │   └── baidu
 │   │       ├── BJ
 │   │       └── SH
-│   ├── vaccinate `vaccinate data`
-│   └── visualize `visualization`
+│   ├── vaccinate # vaccinate data
+│   └── visualize # visualization
 │       └── data
-└── model `models like SIR, LSTM, prophet and others`
+└── model # models like SIR, LSTM, prophet and others
     ├── ARIMA
     ├── cluster
     ├── LSTM
@@ -24,6 +24,8 @@
     ├── SEIR
     ├── SIR
     └── xgboost
+```
+
 
 
 
