@@ -128,7 +128,15 @@ Leveraging prophet model to simulate spread of pandemic from 2020 to 2022 in Chi
 
 ## Models
 
+We try several models:
 
+- ARIMA
+- LSTM
+- prophet
+- SIR & SEIR
+- xgboost
+
+You can directly run corresponding `.py` and `.ipynb` to try them.
 
 ## Research
 
